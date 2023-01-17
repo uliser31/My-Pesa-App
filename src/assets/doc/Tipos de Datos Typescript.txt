@@ -9,5 +9,7 @@ export class AppComponent {
   title = 'my-pesa-app';
   activated : Boolean = true;
   name: String = 'Uliser';
+  age: Number = 0;
+  
   users = ['Uliser','Joe', 'Livan', 'Hanny']
 }

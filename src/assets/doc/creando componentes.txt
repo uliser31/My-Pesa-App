@@ -1,0 +1,27 @@
+Flujo de Carg de Angular
+    index.html
+        <app-root></app-root>app-root>
+
+    main.ts
+        import {AppModule} from './app/app.module';
+
+    app.module.ts
+        import {appComponent} from './app.component'
+
+Creando el componente primercomponente
+- Crear la Carpeta con el nombre anterior
+- Crear el archivo 'primercomponente.ts'  con el siguiente contenido
+
+import {Component} from "@angular/core"
+@Component({
+    selector: 'hello-word'
+    template: '<h1> mi hola mundo </h1>h1>'
+})
+export class HolaMundo{
+    users = ['john', 'ryan','joe'];
+    activate = true;
+};
+
+
+
+

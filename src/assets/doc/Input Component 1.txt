@@ -1,0 +1,27 @@
+import { Text } from '@angular/compiler';
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
+})
+export class UserComponent {
+  @Input() nameUser='';
+}
+
+AppCompounent.html
+<ul>
+  <li *ngFor ="let user of users">
+    <app-user [nameUser]="user"> </app-user>
+  </li>    
+</ul>
+
+User.html
+<p>{{nameUser}}</p>
+
+- otra forma de recorrer la lista for
+  Ojo si no se por F Mayuscula en *ngFor,  no funciona.
+<ul>
+  <app-user *ngfor = "let user of users" [nameUser]="user"> </app-user>
+</ul>
