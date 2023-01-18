@@ -13,3 +13,10 @@ export class UserComponent {
     alert('Hola');
   }
 }
+
+<li>
+    <p>{{nameUser}}</p>
+    <button (click)="sayHello()">
+        Clikc me
+    </button>
+</li>
