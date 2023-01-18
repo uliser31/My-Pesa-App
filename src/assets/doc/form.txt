@@ -1,0 +1,32 @@
+<form (submit)="addUser(newUser)">
+    <input type="text" #newUser >
+        <button>
+            Send User
+        </button>
+</form>
+
+<ul>
+    <li *ngFor="let user of users">
+        {{user}} <button (click)="deleteUser()">X</button>
+    </li>
+</ul>
+
+adduser(newUser){
+    this.users.push(newUser.value);
+    newUser.value = '';
+    newUser.focus;
+    return false; -> para que no resetee la pagina
+}
+
+para doble enlace de datos
+<form>
+  <input type="text" name="name" [(ngModel)="name"]>
+</form>
+
+en app.module.this
+importe (FormModule) from '@angular/form'; 
+
+import:[
+    BrowseModule,
+    FormModule
+]
