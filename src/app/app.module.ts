@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HolaMundo} from './primercomponente/primer.component';
 import { UserComponent } from './user/user.component';
 
-import {DataService} from './data.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,10 +15,12 @@ import {DataService} from './data.service';
     UserComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule
   ],
-  providers: [DataService],
+   
   bootstrap: [AppComponent]
 })
 export class AppModule { }

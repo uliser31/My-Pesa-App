@@ -1,0 +1,63 @@
+
+app.module.ts
+- importar el servicio creado DataService
+- Importar HttpClientModule 
+- Especificar HttpClientModule en imports:[] y DataService en providers:[]
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { HolaMundo} from './primercomponente/primer.component';
+import { UserComponent } from './user/user.component';
+
+import {DataService} from './data.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HolaMundo,
+    UserComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule
+  ],
+  providers: [DataService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+data.servise
+
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+import {Post} from './post'
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  constructor(private http: HttpClient) { 
+    console.log ('Service is working ...');
+  }
+  getData(){
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+  }  
+}
+
+<ul>
+  <app-user *ngFor = "let user of users" [nameUser]="user"> </app-user>
+</ul>
+
+<hr>
+
+<div *ngFor="let post of posts">
+  <h1>{{post.title}}</h1>
+  <h1>{{post.body}}</h1>
+  <hr>
+</div> 

@@ -1,18 +1,19 @@
 
-  <hello-word></hello-word>
+ <!--
+ <hello-word></hello-word>
 <ul>
   <li *ngIf = "activated">
     activated
   </li>    
 </ul>
 
-<!--
+
 <ul>
   <li *ngFor = "let user of users">
     <app-user [nameUser]="user"> </app-user>
   </li>    
 </ul>
--->
+
 <ul>
   <app-user *ngFor = "let user of users" [nameUser]="user"> </app-user>
 </ul>
@@ -24,7 +25,126 @@
   <h1>{{post.body}}</h1>
   <hr>
 </div>  
+-->
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/" >
+    PesaApp
+  </a>
+</nav>
 
+<div class="contaier">
+  <!--container 1 -->
 
+  <div class="row">
+    <!--fila 1-->
+    <div class="col-md-10"> 
+      <!--column 1 -->
+    </div>
+      
+    <div class="col-md-2"> 
+      <!--columna 2--> 
+      <div class="card mt-2 shadow border" style="width: 6rem"   > <!-- ancho-->
+        <div class="card body d-flex flex-column align-items-center">
+          <div class="card-title">
+            {{weightService.weight}}
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div> <!-- /row 1 -->
 
+  <div class="row">
+    <div class="opacity-25"> <!--esta en el container pero fuera de la primera fila -->
+      <div class="col-md-2">
+        <img class = "rounded-circle shadow-8-strong"
+          width="100"
+          alt="Desoft"
+          src="../assets/desoft.jpg" 
+          opacity ="15"
+        />
+      </div>
+    </div>  
+  </div> <!-- /row 1-->
+  <div class="row">
+    <div class="opacity-25"> <!--esta en el container pero fuera de la primera fila -->
+      <div class="col-md-2">
+        {{odooService.partners[0].image}}
+        <!--
+        <img class = "rounded-circle shadow-8-strong"
+          width="100"
+          alt="Desoft"
+          src="../assets/desoft.jpg" 
+          opacity ="15"
+        />
+-->
+      </div>
+    </div>  
+  </div> <!-- /row 1-->
 
+</div> <!-- /continer 1-->
+
+<div class="contaier">
+  <div class="row">
+    <!--container 2-->
+    
+    <div class="col-md-4"> 
+      <!-- primera columna -->
+    </div>
+    
+    <div class="col-md-4">
+      <!-- 
+      segunda columna
+        <div class = "card">
+        <div class="card-body">
+        -->
+          <div class="opacity-75">  
+            <form [formGroup]="partnerForm" (ngSubmit)="onSubmit()">
+              <p>
+
+                <label for="partner-label-listbox" class = 'form-label'> 
+                  Cliente: 
+                </label>
+                
+                <select  id="partner" 
+                  class = 'form-select'
+                  type = "text" 
+                  formControlName="partner"> 
+
+                  <option [ngValue]="null" 
+                    disable class = 'list-group-item-info disable'>
+                    Seleccione el cliente
+                  </option>
+
+                  <option *ngFor="let partner of odooService.partners" 
+                    class = 'list-group-item list-group-item-info'
+                    [ngValue]="partner.id">
+                    {{partner.name}}
+
+                  </option>>
+                </select>
+                <br>
+                
+                <!--https://www.w3schools.com/bootstrap/bootstrap_buttons.asp-->  
+                <button type="submit" 
+                  class = "btn btn-info" 
+                  [disabled]="!partnerForm.valid">
+                  Salvar
+                </button>  
+
+              </p>
+              <div *ngFor='let partner of odooService.partners ' >
+                <img src='{{partner.image}}'/>
+                
+                
+              </div>  
+            </form>  
+          </div>
+          <!--
+        </div>  
+      </div>  
+      -->
+    </div>
+
+  </div> <!-- /row-->
+  </div> <!-- /continer 2-->
